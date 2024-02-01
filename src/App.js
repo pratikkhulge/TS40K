@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React , {useState} from 'react'
+import UseTodos from './Components/UseTodos'
 function App() {
+
+  // const [todo, setTodo] = useState(["Code","Eat","Drink"]);
+  // const [Value, setValue] = useState('');
+
+  // const add = (e) => {
+  //   e.preventDefault();
+  //   if (Value.trim() !== '') {
+  //     setTodo([...todo, Value]);
+  //     setValue('');
+  //   }
+  // };
+
+  // const Remove = (index) => {
+  //   todo.splice(index, 1);
+  //   setTodo([...todo]);
+  // };
+
+  // const Edit = (index, todos) => {
+  //   setValue(todos);
+  //   todo.splice(index, 1);
+  //   setTodo([...todo]);
+  // };
+
+
+  const { todo,
+    Value,
+    setValue,
+    add,
+    Remove,
+    Edit} = UseTodos()
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={add}>
+        <input type="text" value={Value} onChange={(e) => { setValue(e.target.value) }} />
+        <button type="submit">Add</button>
+      </form>
+      <ul>{todo.map((todo, index) => (<li key={index}>Task{index + 1}. {todo}  <button onClick={() => Remove(index)}>Remove</button> <button onClick={() => Edit(index, todo)}>Edit</button></li>))}</ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+

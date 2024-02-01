@@ -1,0 +1,916 @@
+import React, { useState } from 'react';
+
+const App = () => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
+  const lightThemeStyles = {
+    backgroundColor: '#ffffff',
+    color: '#000000',
+  };
+
+  const darkThemeStyles = {
+    backgroundColor: '#333333',
+    color: '#ffffff',
+  };
+
+  // Apply the selected theme styles
+  const themeStyles = isDarkTheme ? darkThemeStyles : lightThemeStyles;
+
+  return (
+    <div style={themeStyles}>
+      <h1>Theme Changer App</h1>
+      <p>This is a simple theme changer example in React.</p>
+
+      <button onClick={toggleTheme}>
+        Toggle Theme: {isDarkTheme ? 'Light' : 'Dark'}
+      </button>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+import React from "react";
+import { useState } from "react";
+function App() {
+  const [count, setCount] = useState(0);
+  function handlelikes() {
+    setCount(count + 1);
+  }
+
+  function handleDislikes() {
+    if(count>0)
+      setCount(count - 1);
+    else
+      setCount(count);
+  }
+
+  return (
+    <div>
+      <button onClick={handlelikes}>Like: {count}</button>
+      <button onClick={handleDislikes}>Dislike</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+import About from './Components/About';
+
+function App() {
+  const name = 'Pratik Khulge';
+  const age = 20;
+  const salary = 50000;
+  return (
+    <About name={name} age={age} salary={salary} />
+  );
+}
+
+export default App;
+
+import React from "react";
+import { useState } from "react";
+function App() {
+const [count , setCount] = useState(0);
+const [number , setNumber] = useState(100);
+
+  function handleCount(){
+    setCount(count+1)
+    setNumber(number-1)
+    };
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={handleCount}>Increment</button>
+      <h1>{number}</h1>
+      <button onClick={handleCount}>Decrement</button>
+      <br></br>
+      <button onClick={()=>{setCount((c)=>c+1); setCount((c)=>c+1) ; setCount((c)=>c+1)}}>Increment By 3</button>
+    </div>
+  );
+}
+
+
+
+// import React, { useReducer } from 'react';
+
+// const actionTypes = {
+//   CHANGE_COLOR: 'CHANGE_COLOR',
+// };
+
+// const colorReducer = (state, action) => {
+//   switch (action.type) {
+//     case actionTypes.CHANGE_COLOR:
+//       return { ...state, color: action.payload };
+//     default:
+//       return state;
+//   }
+// };
+
+// const initialState = {
+//   color: 'black',
+// };
+
+// const ColorChanger = () => {
+//   const [state, dispatch] = useReducer(colorReducer, initialState);
+
+//   const handleButtonClick = (color) => {dispatch({ type: actionTypes.CHANGE_COLOR, payload: color })};
+
+//   return (
+//     <div>
+//       <div
+//         style={{
+//           width: '200px',
+//           height: '200px',
+//           backgroundColor: state.color,
+//           margin: '20px',
+//         }}
+//       ></div>
+//       <button onClick={() => handleButtonClick('red')}>Red</button>
+//       <button onClick={() => handleButtonClick('blue')}>Blue</button>
+//       <button onClick={() => handleButtonClick('green')}>Green</button>
+//       <button onClick={() => handleButtonClick('yellow')}>Yellow</button>
+//       <button onClick={() => handleButtonClick('purple')}>Purple</button>
+//     </div>
+//   );
+// };
+
+// export default ColorChanger;
+
+
+// import React, { useReducer } from 'react';
+
+// const colorReducer = (state, action) => {
+//   switch (action.type) {
+//     case 'CHANGE_COLOR':
+//       return { color: action.payload };
+//     default:
+//       return state;
+//   }
+// };
+
+// const ColorChanger = () => {
+//   const [state, dispatch] = useReducer(colorReducer, { color: 'black' });
+
+//   const handleButtonClick = (color) => {
+//     dispatch({ type: 'CHANGE_COLOR', payload: color });
+//   };
+
+//   return (
+//     <div>
+//       <div
+//         style={{
+//           width: '200px',
+//           height: '200px',
+//           backgroundColor: state.color,
+//           margin: '20px',
+//         }}
+//       ></div>
+//       {['red', 'blue', 'green', 'yellow', 'purple'].map((color) => (
+//         <button key={color} onClick={() => handleButtonClick(color)}>
+//           {color}
+//         </button>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default ColorChanger;
+
+
+
+// import React from 'react'
+// import ColorChanger from './Components/ColorChanger'
+
+// function App() {
+//   return (
+//     <div><ColorChanger/></div>
+//   )
+// }
+
+// export default App
+
+
+// // App.js
+// import React from 'react';
+// import About from './Components/About';
+// const App = () => {
+//   return (
+//   <About/>
+//   );
+// };
+
+// export default App;
+
+// import React from 'react';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+// const Home = () => <h1>I am Pratik</h1>;
+// const About = () => <h1>I am in about</h1>;
+// const Contact = () => <h1>I am in contact</h1>;
+// const Blog = () => <h1>I am in blog</h1>;
+
+// const User = ({ username }) => <h1>I am in user {username}</h1>;
+
+// export default function App() {
+//   return (
+//     <div>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/about" element={<About />} />
+//           <Route path="/contact" element={<Contact />} />
+//           <Route path="/blog" element={<Blog />} />
+//           <Route path="/user/:username" element={<User />} />
+//         </Routes>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+export default App;
+
+
+
+////
+// import React from 'react';
+// import { useState } from "react";
+
+// const App = () => {
+//   const [isDarkTheme, setIsDarkTheme] = useState(false);
+//   const [centerDivTheme, setCenterDivTheme] = useState('');
+
+//   const toggleTheme = () => {
+//     setIsDarkTheme(!isDarkTheme);
+//   };
+
+//   const toggleCenterDivTheme = () => {
+//     setCenterDivTheme(centerDivTheme === 'center-div-dark' ? 'center-div-light' : 'center-div-dark');
+//   };
+
+//   const appStyle = {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     minHeight: '100vh',
+//     background: isDarkTheme ? 'darkslategray' : 'mintcream',
+//     color: isDarkTheme ? 'white' : 'black',
+//   };
+
+//   const headerStyle = {
+//     padding: '20px',
+//     width: '100%',
+//     boxSizing: 'border-box',
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//   };
+
+//   const buttonStyle = {
+//     padding: '10px',
+//     cursor: 'pointer',
+//     background: 'transparent',
+//     border: '1px solid gray',
+//     color: isDarkTheme ? 'white' : 'black',
+//   };
+
+//   const mainContentStyle = {
+//     padding: '20px',
+//   };
+
+//   const centerDivStyle = {
+//     padding: '20px',
+//     borderRadius: '8px',
+//     background: centerDivTheme === 'center-div-dark' ? 'darkslategray' : 'mintcream',
+//     color: centerDivTheme === 'center-div-dark' ? 'white' : 'black',
+//     marginTop: '20px',
+//   };
+
+//   const centerDivButtonStyle = {
+//     padding: '10px',
+//     cursor: 'pointer',
+//     background: 'transparent',
+//     border: '1px solid gray',
+//     color: centerDivTheme === 'center-div-dark' ? 'white' : 'black',
+//   };
+
+//   return (
+//     <div style={appStyle}>
+//       <header style={headerStyle}>
+//         <h1>Theme Changer</h1>
+//         <button onClick={toggleTheme} style={buttonStyle}>
+//           {isDarkTheme ? 'Light Theme' : 'Dark Theme'}
+//         </button>
+//       </header>
+
+//       <main style={mainContentStyle}>
+//         <p>This is the main content of this Div.</p>
+//       </main>
+
+//       <div style={centerDivStyle}>
+//         <p>This div has its own independent light and dark themes!</p>
+//         <button onClick={toggleCenterDivTheme} style={centerDivButtonStyle}>
+//           {centerDivTheme === 'center-div-dark' ? 'Light Theme' : 'Dark Theme'}
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+
+// function App() {
+//   const [condition, setCondition] = useState(false);
+//   const [input, setInput] = useState(
+//     {
+//       email:"" ,
+//       password: ""
+//     }
+//   )
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     setCondition(true);
+//   }
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <input type="email" placeholder='Email'   value={input.email} onChange={(e) => setInput((prev)=>({...prev  ,email:e.target.value}))} />
+//         <br></br>
+//         <input type="password" placeholder='Password' value={input.password} onChange={(e) => setInput((prev)=>({...prev  ,password:e.target.value}))} />
+//         <br></br>
+//         <input type="submit" value="Submit" />
+//       </form>
+
+//       {condition && (
+//         <div>
+//           <h1>Your Name is: {input.email}</h1>
+//           <h1>Your Password is: {input.password}</h1>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React, { useEffect, useState } from 'react';
+
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const [number, setNumber] = useState(100);
+
+//   useEffect(() => {
+//     console.log("useEffect");
+
+//     const intervalId = setInterval(() => {
+//       console.log("UseEffect is Running");
+//     }, 800);
+
+//     return () => {
+//       console.log("cleanup");
+//       clearInterval(intervalId);
+//     };
+//   }, []); 
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={() => setCount(count + 1)}>Increment</button>
+//       <h1>{number}</h1>
+//       <button onClick={() => setNumber(number - 1)}>Decrement</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [number, setNumber] = useState(100);
+
+  const startInterval = () => {
+    console.log("Setting up interval");
+    const intervalId = setInterval(() => {
+      console.log("Interval is Running");
+    }, 800);
+
+    return () => {
+      console.log("Cleaning up interval");
+      clearInterval(intervalId);
+    };
+  };
+
+  useEffect(() => {
+  }, []); 
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <h1>{number}</h1>
+      <button onClick={() => setNumber(number - 1)}>Decrement</button>
+      <button onClick={startInterval}>Start Interval</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+// import React, { useState, useEffect } from 'react';
+
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     const intervalId = setTimeout(() => {
+//       setCount((prevCount) => prevCount + 1);
+//     }, 1000);
+
+//     return () => clearTimeout(intervalId);
+//   }, [count]);
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import React, { useEffect, useState } from "react";
+
+// function Pomodoro() {
+//     const [workDuration, setWorkDuration] = useState(25);
+//     const [breakDuration, setBreakDuration] = useState(5);
+//     const [worksecond, setWorkSecond] = useState(1500);
+//     const [breakSecond, setBreakSecond] = useState(300);
+//     const [type, setType] = useState("Work");
+//     const [resetFlag, setResetFlag] = useState(true);
+//     const [flag, setFlag] = useState(false);
+//     const [workSessions, setWorkSessions] = useState(1);
+//     const [breakSessions, setBreakSessions] = useState(0);
+//     useEffect(() => {
+//         if (flag && type === "Work") {
+//             if (worksecond > 0) {
+//                 setTimeout(() => setWorkSecond(worksecond - 1), 1000);
+//             }
+//             if (worksecond === 0) {
+//                 alert("work duration is over");
+//                 setType("Break");
+//                 setWorkSecond(workDuration * 60);
+//                 setBreakSessions(breakSessions + 1);
+//             }
+//         }
+//         if (flag && type === "Break") {
+//             if (breakSecond > 0) {
+//                 setTimeout(() => setBreakSecond(breakSecond - 1), 1000);
+//             }
+//             if (breakSecond === 0) {
+//                 alert("Break duration is over");
+//                 setType("Work");
+//                 setBreakSecond(breakDuration * 60);
+//                 setWorkSessions(workSessions + 1);
+//             }
+//         }
+//     }, [type, flag, worksecond, breakDuration, breakSecond, workDuration]);
+//     const convertor = (sec) => {
+//         let m = parseInt(sec / 60).toString();
+//         let s = parseInt(sec % 60).toString();
+//         if (m.length === 1) m = "0" + m;
+//         if (s.length === 1) s = "0" + s;
+//         return m + ":" + s;
+//     };
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+//         setWorkSecond(workDuration * 60);
+//         setBreakSecond(breakDuration * 60);
+//         setType("Work");
+//     };
+//     const handleReset = () => {
+//         setResetFlag(true);
+//         setFlag(false);
+//         setBreakDuration(5);
+//         setWorkDuration(25);
+//         setWorkSecond(1500);
+//         setBreakSecond(300);
+//         setWorkSessions(0);
+//         setBreakSessions(0);
+//     };
+//     return (
+//         <div>
+//             <div>
+//                 <h1>
+//                     {type === "Work" ? convertor(worksecond) : convertor(breakSecond)}
+//                 </h1>
+//                 <h1>{type === "Work" ? "Work" : "Break"}-Time</h1>
+//             </div>
+//             <div>
+//                 <p>Work Sessions: {workSessions}</p>
+//                 <p>Break Sessions: {breakSessions}</p>
+//             </div>
+//             <div>
+//                 <button
+//                     onClick={() => {
+//                         setFlag(true);
+//                         setResetFlag(false);
+//                     }}
+//                     disabled={flag}
+//                 >
+//                     Start
+//                 </button>
+//                 <button
+//                     onClick={() => {
+//                         setFlag(false);
+//                         setResetFlag(false);
+//                     }}
+//                     disabled={!flag}
+//                 >
+//                     Stop
+//                 </button>
+//                 <button onClick={handleReset} disabled={resetFlag}>
+//                     Reset
+//                 </button>
+//             </div>
+//             <div>
+//                 <form onSubmit={handleSubmit}>
+//                     <input
+//                         type="number"
+//                         min="0"
+//                         value={workDuration}
+//                         onChange={(e) => setWorkDuration(e.target.value)}
+//                         disabled={flag}
+//                     />
+//                     <input
+//                         type="number"
+//                         min="0"
+//                         value={breakDuration}
+//                         onChange={(e) => setBreakDuration(e.target.value)}
+//                         disabled={flag}
+//                     />
+//                     <input type="submit" value="set" disabled={flag} />
+//                 </form>
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default Pomodoro;
+
+// import React, { useEffect, useState } from 'react';
+
+// function Pomodoro() {
+//   const [workDuration, setWorkDuration] = useState(25);
+//   const [breakDuration, setBreakDuration] = useState(5);
+//   const [worksecond, setWorkSecond] = useState(25 * 60);
+//   const [breakSecond, setBreakSecond] = useState(5 * 60);
+//   const [type, setType] = useState('Work');
+//   const [resetFlag, setResetFlag] = useState(true);
+//   const [flag, setFlag] = useState(false);
+//   const [workSessions, setWorkSessions] = useState(0);
+//   const [breakSessions, setBreakSessions] = useState(0);
+
+//   useEffect(() => {
+//     let timer;
+
+//     if (flag) {
+//       timer = setInterval(() => {
+//         if (type === 'Work' && worksecond > 0) {
+//           setWorkSecond((prev) => prev - 1);
+//         } else if (type === 'Break' && breakSecond > 0) {
+//           setBreakSecond((prev) => prev - 1);
+//         }
+//       }, 1000);
+//     }
+
+//     return () => clearInterval(timer);
+//   }, [flag, type, worksecond, breakSecond]);
+
+//   useEffect(() => {
+//     if (worksecond === 0 && type === 'Work') {
+//       alert('Work duration is over');
+//       setType('Break');
+//       setWorkSecond(workDuration * 60);
+//       setWorkSessions((prev) => prev + 1);
+//     }
+
+//     if (breakSecond === 0 && type === 'Break') {
+//       alert('Break duration is over');
+//       setType('Work');
+//       setBreakSecond(breakDuration * 60);
+//       setBreakSessions((prev) => prev + 1);
+//     }
+//   }, [worksecond, breakSecond, type, workDuration, breakDuration]);
+
+//   const convertor = (sec) => {
+//     const m = Math.floor(sec / 60).toString().padStart(2, '0');
+//     const s = (sec % 60).toString().padStart(2, '0');
+//     return `${m}:${s}`;
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setWorkSecond(workDuration * 60);
+//     setBreakSecond(breakDuration * 60);
+//     setType('Work');
+//   };
+
+//   const handleReset = () => {
+//     setResetFlag(true);
+//     setFlag(false);
+//     setWorkDuration(25);
+//     setBreakDuration(5);
+//     setWorkSecond(25 * 60);
+//     setBreakSecond(5 * 60);
+//     setWorkSessions(0);
+//     setBreakSessions(0);
+//   };
+
+//   return (
+//     <div>
+//       <div>
+//         <h1>{type === 'Work' ? convertor(worksecond) : convertor(breakSecond)}</h1>
+//         <h1>{type === 'Work' ? 'Work' : 'Break'}-Time</h1>
+//       </div>
+//       <div>
+//         <p>Work Sessions: {workSessions}</p>
+//         <p>Break Sessions: {breakSessions}</p>
+//       </div>
+//       <div>
+//         <button onClick={() => { setFlag(true); setResetFlag(false); }} disabled={flag}>
+//           Start
+//         </button>
+//         <button onClick={() => { setFlag(false); setResetFlag(false); }} disabled={!flag}>
+//           Stop
+//         </button>
+//         <button onClick={handleReset} disabled={resetFlag}>
+//           Reset
+//         </button>
+//       </div>
+//       <div>
+//         <form onSubmit={handleSubmit}>
+//           <input
+//             type="number"
+//             value={workDuration}
+//             onChange={(e) => setWorkDuration(e.target.value)}
+//             disabled={flag}
+//           />
+//           <input
+//             type="number"
+//             value={breakDuration}
+//             onChange={(e) => setBreakDuration(e.target.value)}
+//             disabled={flag}
+//           />
+//           <input type="submit" value="Set" disabled={flag} />
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Pomodoro;
+
+
+// import React, { useState, useEffect } from 'react';
+
+// const Stopwatch = () => {
+//   const [isRunning, setIsRunning] = useState(false);
+//   const [time, setTime] = useState(0);
+
+//   useEffect(() => {
+//     let timer;
+
+//     if (isRunning) {
+//       timer = setInterval(() => {
+//         setTime((prevTime) => prevTime + 1);
+//       }, 1000);
+//     }
+
+//     return () => {
+//       clearInterval(timer);
+//     };
+//   }, [isRunning]);
+
+//   const startStop = () => {
+//     setIsRunning((prevIsRunning) => !prevIsRunning);
+//   };
+
+//   const reset = () => {
+//     setIsRunning(false);
+//     setTime(0);
+//   };
+
+//   const formatTime = (seconds) => {
+//     const minutes = Math.floor(seconds / 60);
+//     const remainingSeconds = seconds % 60;
+
+//     const formattedMinutes = String(minutes).padStart(2, '0');
+//     const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+//     return `${formattedMinutes}:${formattedSeconds}`;
+//   };
+
+//   return (
+//     <div>
+//       <h1>{formatTime(time)}</h1>
+//       <button onClick={startStop}>{isRunning ? 'Stop' : 'Start'}</button>
+//       <button onClick={reset}>Reset</button>
+//     </div>
+//   );
+// };
+
+// export default Stopwatch;
+
+
+// import React from 'react';
+// import ReverseTimer from './Components/ReverseTimer';
+
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Reverse Timer Example</h1>
+//       <ReverseTimer initialTime={300} />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+// import React, { Component } from 'react'
+// import Counter from "./Components/Counter"
+
+// export default class App extends Component {
+//   render() {
+//     return (
+//       // <div><NameDisplay/></div>
+//     <div><Counter /></div>
+//     )
+//   }
+// }
+
+
+
+// import React, { useReducer } from 'react'
+
+// const reducerFunction=(state,action)=>{
+//   console.log(state,action)
+//   if(action.type === "one"){
+//     return {count:state.count+1}
+//     } else if(action.type === "two") {
+//     return {count:state.count+2}
+//     } else if(action.type === "three"){
+//     return {count:state.count+3}
+//     }
+//     return state;
+// }
+
+// function App() {
+//   const [state, dispatch] = useReducer(reducerFunction,{count:0})
+//   return (
+//     <div>
+//       <h1>{state.count}</h1>
+//       <button onClick={()=> dispatch({type: "one"})}> Increment one </button>      
+//       <button onClick={()=> dispatch({type: "two"})}>Increment two </button>
+//       <button onClick={()=> dispatch({type: "three"})}>Increment three</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import React, { useState } from 'react'
+
+function App() {
+  const [todo, setTodo] = useState([]);
+  const [Value, setValue] = useState('');
+  const add = (e) => {
+    e.preventDefault();
+    if (Value.trim() !== '') {
+      setTodo([...todo, Value]);
+      setValue('');
+    }
+  };
+  const Remove = (index) => {
+    todo.splice(index, 1);
+    setTodo([...todo]);
+  };
+  const Edit = (index, todos) => {
+    setValue(todos);
+    todo.splice(index, 1);
+    setTodo([...todo]);
+  };
+  return (
+    <div>
+      <form onSubmit={add}>
+        <input type="text" value={Value} onChange={(e) => { setValue(e.target.value) }} />
+        <button type="submit">Add</button>
+      </form>
+      <ul>{todo.map((todo, index) => (<li key={index}>Task{index + 1}. {todo} <button onClick={() => Remove(index)}>Remove</button> <button onClick={() => Edit(index, todo)}>Edit</button></li>))}</ul>
+    </div>
+  )
+}
+
+export default App
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+*********************************************************************************************************************************************************************************************************************
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PokemonCard from './Components/PokemonCard';
+import PokemonDetails from './Components/PokemonDetail';
+import './App.css';
+
+const App = () => {
+  const [pokemonList, setPokemonList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2000');
+        const data = await response.json();
+
+        setPokemonList(data.results);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <Router>
+      <div className="App">
+        <h1>PokeAPI React App</h1>
+        <Routes>
+          <Route path="/" element={<PokemonCardList pokemonList={pokemonList} />} />
+          <Route path="/pokemon/:name" element={<PokemonDetails />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+const PokemonCardList = ({ pokemonList }) => (
+  <div className="pokemon-container">
+    {pokemonList.map((pokemon, index) => (
+      <PokemonCard key={index} pokemon={pokemon} />
+    ))}
+  </div>
+);
+
+export default App;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+***********************************************************************************************************************************************************************************************************************
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// import React from 'react';
+// import Counter from './Components/Counter';
+// import ErrorBoundary from './Components/ErrorBoundary';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <ErrorBoundary> 
+//         <Counter />
+//       </ErrorBoundary>
+//     </div>
+//   );
+// }
+
+// export default App;
